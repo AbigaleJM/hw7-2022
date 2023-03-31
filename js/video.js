@@ -23,17 +23,17 @@ document.querySelector("#pause").addEventListener("click", function() {
 document.querySelector("#slower").addEventListener("click", function() {
 	console.log("Slow video");
 	video = document.querySelector("#player1");
-	video.playbackRate -= 0.05;
+	video.playbackRate -= 0.10;
 	rate = video.playbackRate;
-	console.log("New speed is" - rate);
+	console.log("New speed is " + rate);
 });
 
 document.querySelector("#faster").addEventListener("click", function() {
 	console.log("Speed up video");
 	video = document.querySelector("#player1");
-	video.playbackRate += 0.05;
+	video.playbackRate += 0.10;
 	rate = video.playbackRate;
-	console.log("New speed is" + rate);
+	console.log("New speed is " + rate);
 });
 
 document.querySelector("#skip").addEventListener("click", function() {
@@ -59,8 +59,8 @@ document.querySelector("#mute").addEventListener("click",function() {
 document.querySelector("#slider").addEventListener("change",function() {
     console.log("I am sliding");
 	video = document.querySelector("#player1");
-    video.volume == this.value;
-	console.log(this.value);
+	video.volume = this.value + "%";
+	console.log(video.volume);
 	document.querySelector("#volume").innerHTML = this.value;
 });
 
