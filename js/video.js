@@ -42,7 +42,7 @@ document.querySelector("#skip").addEventListener("click", function() {
 	video.currentTime += 15;
 	console.log(video.currentTime)
 	if (video.ended == true) {
-		video.play();
+		video.currentTime = 0;
 	}
 });
 
@@ -50,18 +50,22 @@ document.querySelector("#mute").addEventListener("click",function() {
 	video = document.querySelector("#player1");
 	if (video.muted == true) {
 		video.muted = false;
+		console.log("Video Unmuted")
 		document.querySelector("#volume").innerHTML = this.value;
-	} else if (video.muted==false) {
+		document.querySelector("#mute").innerHTML = "Mute"
+	} 
+	else if (video.muted==false) {
 		video.muted = true;}
-		document.querySelector("#volume").innerHTML = 0;
+		document.querySelector("#volume").innerHTML = 0 + "%";
+		document.querySelector("#mute").innerHTML = "Unmute"
+		console.log("Video muted")
 });
 
 document.querySelector("#slider").addEventListener("change",function() {
     console.log("I am sliding");
 	video = document.querySelector("#player1");
-	video.volume = this.value + "%";
-	console.log(video.volume);
-	document.querySelector("#volume").innerHTML = this.value;
+	video.volume = this.value / 100;
+	document.querySelector("#volume").innerHTML = this.value + "%";
 });
 
 document.querySelector("#vintage").addEventListener("click",function() {
